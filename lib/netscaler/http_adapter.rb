@@ -6,6 +6,11 @@ module Netscaler
   class HttpAdapter < Adapter
     def initialize(args)
       @site=RestClient::Resource.new args[:hostname], args[:username], args[:password]
+      @hostname = args[:hostname]
+    end
+
+    def hostname
+      @hostname
     end
 
     def post_no_body(part, data, args={})
